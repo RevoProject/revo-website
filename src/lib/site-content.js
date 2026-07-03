@@ -33,10 +33,10 @@ export const translations = {
     "history-step2-desc": "Build for Streamlabs/OBS Studio Node — historically tied to older versions and limited to Windows & macOS.",
     "history-step3-title": "Third step — libobs → revo-lib → Rust",
     "history-step3-desc": "Target official libobs and port via revo-lib to Rust bindings for long-term, cross-platform support.",
-    "seo-title": "RevoStream — Open-Source Streaming Control Center | iTVT Poland Group",
+    "seo-title": "RevoStream — Open-Source Streaming | iTVT Poland Group",
     "seo-desc": "Open-source control center for modern streaming workflows. RTMP, SRT, WebRTC. Scene management, plugin system, and cross-platform support. Built by iTVT Poland Group.",
     "seo-keywords": "RevoStream, streaming, RTMP, SRT, WebRTC, OBS, streaming control center, open-source, iTVT Poland Group, scene management, live streaming, broadcast",
-    "seo-og-title": "RevoStream — Open-Source Streaming Control Center",
+    "seo-og-title": "RevoStream — Open-Source Streaming | iTVT Poland Group",
     "seo-og-desc": "Open-source control center for modern streaming workflows with RTMP, SRT, WebRTC support. Scene management, plugin system, and more. Built by iTVT Poland Group.",
     "no-data": "No data available"
   },
@@ -74,10 +74,10 @@ export const translations = {
     "history-step2-desc": "Budowa dla Streamlabs/OBS Studio Node — zwykle związana ze starszymi wersjami i dostępną tylko na Windows i macOS.",
     "history-step3-title": "Trzeci krok — libobs → revo-lib → Rust",
     "history-step3-desc": "Port libobs do revo-lib za pomocą bindingów Rust dla długoterminowego, wieloplatformowego wsparcia.",
-    "seo-title": "RevoStream — Otwarto-źródłowe Centrum Sterowania Streamingiem | iTVT Poland Group",
+    "seo-title": "RevoStream — Open-Source Streaming | iTVT Poland Group",
     "seo-desc": "Otwarto-źródłowe centrum sterowania dla nowoczesnych workflowów streamingowych. RTMP, SRT, WebRTC. Zarządzanie scenami, system wtyczek i wsparcie wieloplatformowe. Stworzone przez iTVT Poland Group.",
     "seo-keywords": "RevoStream, streaming, RTMP, SRT, WebRTC, OBS, centrum sterowania streamingiem, open-source, iTVT Poland Group, zarządzanie scenami, live streaming, transmisja",
-    "seo-og-title": "RevoStream — Otwarto-źródłowe Centrum Sterowania Streamingiem",
+    "seo-og-title": "RevoStream — Open-Source Streaming | iTVT Poland Group",
     "seo-og-desc": "Otwarto-źródłowe centrum sterowania dla nowoczesnych workflowów streamingowych z wsparciem RTMP, SRT, WebRTC. Zarządzanie scenami, system wtyczek i więcej. Stworzone przez iTVT Poland Group.",
     "no-data": "Brak dostępnych danych"
   }
