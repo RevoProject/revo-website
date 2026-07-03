@@ -1,0 +1,21 @@
+---
+const { isEn } = Astro.props;
+---
+<header class="header">
+  <div class="container">
+    <div class="logo">RevoStream</div>
+    <div class="lang-switcher">
+      {isEn ? (
+        <span class="lang-btn" aria-current="true">EN</span>
+      ) : (
+        <a href="/" class="lang-btn" hreflang="en">EN</a>
+      )}
+      <span class="separator">|</span>
+      {isEn ? (
+        <a href="/pl/" class="lang-btn" hreflang="pl">PL</a>
+      ) : (
+        <span class="lang-btn" aria-current="true">PL</span>
+      )}
+    </div>
+  </div>
+</header>

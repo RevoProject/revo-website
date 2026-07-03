@@ -1,0 +1,79 @@
+---
+const { lang, siteUrl, pageUrl, pageTitle, pageDesc, ogTitle, ogDesc, isEn, t } = Astro.props;
+---
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{pageTitle}</title>
+
+  <meta name="description" content={pageDesc}>
+  <meta name="keywords" content={t("seo-keywords")}>
+  <meta name="author" content="iTVT Poland Group">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content={isEn ? "English" : "Polish"}>
+  <link rel="canonical" href={pageUrl}>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={ogTitle}>
+  <meta property="og:description" content={ogDesc}>
+  <meta property="og:url" content={pageUrl}>
+  <meta property="og:site_name" content="RevoStream by iTVT Poland Group">
+  <meta property="og:locale" content={isEn ? "en_US" : "pl_PL"}>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={ogTitle}>
+  <meta name="twitter:description" content={ogDesc}>
+
+  <meta name="theme-color" content="#3B82F6">
+  <meta name="application-name" content="RevoStream">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta property="og:image" content={siteUrl + "/og-image.jpg"}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content={ogTitle}>
+
+  <meta name="twitter:image" content={siteUrl + "/og-image.jpg"}>
+  <meta name="twitter:image:alt" content={ogTitle}>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "iTVT Poland Group", "item": "https://itvt.xyz" },
+          { "@type": "ListItem", "position": 2, "name": "RevoStream", "item": siteUrl }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "name": "iTVT Poland Group",
+        "url": "https://itvt.xyz",
+        "subOrganization": {
+          "@type": "Organization",
+          "name": "RevoStream",
+          "url": siteUrl,
+          "description": pageDesc,
+          "parentOrganization": { "@type": "Organization", "name": "iTVT Poland Group", "url": "https://itvt.xyz" }
+        },
+        "sameAs": [
+          "https://youtube.com/@itvt_pl",
+          "https://instagram.com/itvt_poland",
+          "https://tiktok.com/@itvt_poland",
+          "https://github.com/open-itvt"
+        ]
+      }
+    ]
+  })}>
+  </script>
+</head>
