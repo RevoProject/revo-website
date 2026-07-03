@@ -1,0 +1,21 @@
+# RevoStream
+
+> Open-source control center for modern streaming workflows. Supports RTMP, SRT, and WebRTC with scene management, a plugin system, and cross-platform bindings. Built by iTVT Poland Group as a sub-brand.
+
+RevoStream is composed of two main products:
+- **RevoStream** — the streaming control center application (core engine, scene management, plugin system)
+- **revo-lib** — low-level Rust library with media processing, FFI bindings, and performance tools
+
+The project is under active development. The streaming core engine is in progress; scene management and plugin system are planned.
+
+## Docs
+
+- [README](README.md): Project overview and setup instructions
+- [Source code](https://github.com/revoproject/revo-stream): GitHub repository
+- [Website source](https://github.com/revoproject/revo-website): Website repository
+
+## Optional
+
+- [iTVT Poland Group](https://itvt.xyz): Parent organization
+- [YouTube](https://youtube.com/@itvt_pl): iTVT Poland Group channel
+- [GitHub org](https://github.com/open-itvt): iTVT Poland Group GitHub
