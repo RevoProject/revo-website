@@ -2,6 +2,14 @@
 import "../styles/style.css";
 import { renderMilestonesHTML, renderRoadmapHTML, translations, roadmapItems } from "../lib/site-content.js";
 
+import SEOHead from "./SEOHead.astro";
+import Header from "./Header.astro";
+import CTASection from "./CTASection.astro";
+import MilestonesSection from "./MilestonesSection.astro";
+import RoadmapSection from "./RoadmapSection.astro";
+import SEOHidden from "./SEOHidden.astro";
+import Footer from "./Footer.astro";
+
 const { lang = "en" } = Astro.props;
 
 function t(key) {
@@ -14,7 +22,6 @@ const revostreamHTML = renderRoadmapHTML("revostream", lang);
 const revolibHTML = renderRoadmapHTML("revolib", lang);
 const isEn = lang === "en";
 const siteUrl = "https://revostream.in";
-const pagePath = isEn ? "" : "/pl";
 const pageUrl = siteUrl + (isEn ? "" : "/pl");
 const pageTitle = t("seo-title");
 const pageDesc = t("seo-desc");
@@ -33,242 +40,17 @@ const revoMissing = missingStatuses("revostream");
 const libMissing = missingStatuses("revolib");
 ---
 <html lang={lang}>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{pageTitle}</title>
-
-  <meta name="description" content={pageDesc}>
-  <meta name="keywords" content={t("seo-keywords")}>
-  <meta name="author" content="iTVT Poland Group">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content={isEn ? "English" : "Polish"}>
-  <link rel="canonical" href={pageUrl}>
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content={ogTitle}>
-  <meta property="og:description" content={ogDesc}>
-  <meta property="og:url" content={pageUrl}>
-  <meta property="og:site_name" content="RevoStream by iTVT Poland Group">
-  <meta property="og:locale" content={isEn ? "en_US" : "pl_PL"}>
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content={ogTitle}>
-  <meta name="twitter:description" content={ogDesc}>
-
-  <meta name="theme-color" content="#3B82F6">
-  <meta name="application-name" content="RevoStream">
-
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <meta property="og:image" content={siteUrl + "/og-image.jpg"}>
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:alt" content={ogTitle}>
-
-  <meta name="twitter:image" content={siteUrl + "/og-image.jpg"}>
-  <meta name="twitter:image:alt" content={ogTitle}>
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "iTVT Poland Group", "item": "https://itvt.xyz" },
-          { "@type": "ListItem", "position": 2, "name": "RevoStream", "item": siteUrl }
-        ]
-      },
-      {
-        "@type": "Organization",
-        "name": "iTVT Poland Group",
-        "url": "https://itvt.xyz",
-        "subOrganization": {
-          "@type": "Organization",
-          "name": "RevoStream",
-          "url": siteUrl,
-          "description": pageDesc,
-          "parentOrganization": { "@type": "Organization", "name": "iTVT Poland Group", "url": "https://itvt.xyz" }
-        },
-        "sameAs": [
-          "https://youtube.com/@itvt_pl",
-          "https://instagram.com/itvt_poland",
-          "https://tiktok.com/@itvt_poland",
-          "https://github.com/open-itvt"
-        ]
-      }
-    ]
-  })}>
-  </script>
-</head>
+  <SEOHead {lang} {siteUrl} {pageUrl} {pageTitle} {pageDesc} {ogTitle} {ogDesc} {isEn} {t} />
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="logo">RevoStream</div>
-      <div class="lang-switcher">
-        {isEn ? (
-          <span class="lang-btn" aria-current="true">EN</span>
-        ) : (
-          <a href="/" class="lang-btn" hreflang="en">EN</a>
-        )}
-        <span class="separator">|</span>
-        {isEn ? (
-          <a href="/pl/" class="lang-btn" hreflang="pl">PL</a>
-        ) : (
-          <span class="lang-btn" aria-current="true">PL</span>
-        )}
-      </div>
-    </div>
-  </header>
+  <Header {isEn} />
 
   <main>
-  <section class="cta">
-    <div class="container">
-      <h1 class="cta-text">{t("cta")}</h1>
-      <div class="cta-screenshot">
-        <img src="/img/revostream_demo.webp" alt="RevoStream dashboard preview" loading="lazy">
-      </div>
-      <div class="btns-cta">
-        <a href="https://github.com/revoproject/revo-stream/releases">
-          <button class="btn-primary">{t("tryAlpha")}</button>
-        </a>
-        <a class="btn-ghost" href="https://github.com/revoproject/revo-stream" target="_blank" rel="noopener noreferrer">
-          <svg class="icon-github" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.082-.729.082-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.93 0-1.31.468-2.381 1.235-3.221-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.653 1.653.242 2.873.119 3.176.77.84 1.233 1.911 1.233 3.221 0 4.61-2.807 5.624-5.479 5.921.43.372.815 1.103.815 2.222 0 1.606-.015 2.899-.015 3.292 0 .319.216.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/>
-          </svg>
-          <span>{t("viewOnGitHub")}</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="milestones">
-    <div class="container">
-      <h2>{t("milestones")}</h2>
-
-      <div class="timeline" id="milestones-timeline" set:html={milestonesHTML}></div>
-
-      <div class="history">
-        <h3>{t("historyTitle")}</h3>
-        <div class="history-list">
-          <div class="history-item">
-            <div class="history-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.2" fill="none"></rect>
-                <path d="M8 2v4M16 2v4M3 10h18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
-              </svg>
-            </div>
-            <div class="history-content">
-              <h4>{t("history-step1-title")}</h4>
-              <p>{t("history-step1-desc")}</p>
-            </div>
-          </div>
-
-          <div class="history-item">
-            <div class="history-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.2" fill="none"></rect>
-                <path d="M8 2v4M16 2v4M3 10h18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
-              </svg>
-            </div>
-            <div class="history-content">
-              <h4>{t("history-step2-title")}</h4>
-              <p>{t("history-step2-desc")}</p>
-            </div>
-          </div>
-
-          <div class="history-item">
-            <div class="history-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.2" fill="none"></rect>
-                <path d="M8 2v4M16 2v4M3 10h18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
-              </svg>
-            </div>
-            <div class="history-content">
-              <h4>{t("history-step3-title")}</h4>
-              <p>{t("history-step3-desc")}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="roadmap">
-    <div class="container">
-      <h2>{t("roadmap")}</h2>
-
-      <input type="radio" name="tab" id="tab-revostream" hidden checked>
-      <input type="radio" name="tab" id="tab-revolib" hidden>
-
-      <div class="tabs">
-        <label for="tab-revostream" class="tab">RevoStream</label>
-        <label for="tab-revolib" class="tab">revo-lib</label>
-      </div>
-
-      <input type="radio" name="filter" id="filter-all" hidden checked>
-      <input type="radio" name="filter" id="filter-added" hidden>
-      <input type="radio" name="filter" id="filter-in-progress" hidden>
-      <input type="radio" name="filter" id="filter-partial" hidden>
-      <input type="radio" name="filter" id="filter-future" hidden>
-
-      <div class="sort-row roadmap-filter-row">
-        <div class="filter-badges" role="toolbar" aria-label={isEn ? "Filter roadmap by status" : "Filtruj roadmapę według statusu"}>
-          <label for="filter-all" class="filter-badge">{t("filter-all")}</label>
-          <label for="filter-added" class="filter-badge">{t("status-added")}</label>
-          <label for="filter-in-progress" class="filter-badge">{t("status-in-progress")}</label>
-          <label for="filter-partial" class="filter-badge">{t("status-partial")}</label>
-          <label for="filter-future" class="filter-badge">{t("status-future")}</label>
-        </div>
-      </div>
-
-      <div class="tab-content" data-content="revostream">
-        <div class="roadmap-grid" id="roadmap-grid-revostream" set:html={revostreamHTML}></div>
-        {revoMissing.map(status => (
-          <p class={`empty-state empty-state-${status.replace(/\s+/g, "-")}`}>{t("no-data")}</p>
-        ))}
-      </div>
-
-      <div class="tab-content" data-content="revolib">
-        <div class="roadmap-grid" id="roadmap-grid-revolib" set:html={revolibHTML}></div>
-        {libMissing.map(status => (
-          <p class={`empty-state empty-state-${status.replace(/\s+/g, "-")}`}>{t("no-data")}</p>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <div aria-hidden="true" class="seo-hidden">
-    <p>RevoStream is an open-source streaming control center and live broadcasting application developed by iTVT Poland Group. Built on a modern technology stack combining Rust for high-performance backend processing with Svelte for a responsive user interface, RevoStream provides professional-grade streaming capabilities for content creators, broadcasters, and media professionals.</p>
-
-    <p>The core streaming engine supports multiple industry-standard protocols including RTMP (Real-Time Messaging Protocol) for broad platform compatibility, SRT (Secure Reliable Transport) for reliable streaming over unpredictable networks, RIST (Reliable Internet Stream Transport) for low-latency contribution links, WHIP (WebRTC-HTTP Ingestion Protocol) for browser-based streaming, and native WebRTC for ultra-low-latency peer-to-peer connections. This protocol diversity ensures RevoStream can integrate with any major streaming platform including YouTube, Twitch, Kick, Facebook Live, and custom RTMP endpoints.</p>
-
-    <p>At the foundation of RevoStream lies revo-lib, a comprehensive Rust library that provides safe, idiomatic wrappers around the OBS (Open Broadcaster Software) runtime. Instead of using manual bindgen which requires a full obs-studio clone of over 230 megabytes, revo-lib leverages libobs-wrapper — pre-built, production-grade FFI bindings that reduce build time to approximately thirty seconds with zero local storage overhead. The library follows Rust's RAII (Resource Acquisition Is Initialization) pattern with ObsContext managing OBS runtime lifecycle, including startup, shutdown, and error recovery. The streaming subsystem uses a trait-based polymorphic output architecture where ObsOutputTrait defines a common interface for all output types, making it straightforward to add new streaming or recording targets without modifying existing code.</p>
-
-    <p>Scene management in RevoStream enables broadcasters to create dynamic production workflows with multiple scenes, each containing layered sources such as camera inputs, screen captures, media files, text overlays, and web widgets. Scene transitions support customizable effects including cuts, fades, wipes, and stinger transitions. The audio mixer provides per-source volume control, noise suppression, gain filters, and multi-channel output routing. Future updates will introduce a compositor with real-time chroma key, color grading, and GPU-accelerated effects.</p>
-
-    <p>The RevoStream plugin system is designed around WebAssembly for sandboxed, cross-platform extensibility. Plugin developers can write extensions in Rust, JavaScript, or any language that compiles to WASM. The plugin SDK will provide access to the full streaming pipeline including source acquisition, frame processing, audio filtering, and output management. A community plugin registry with versioning, ratings, and automatic updates is planned for the beta release.</p>
-
-    <p>The desktop application is built with Tauri, a framework that combines a Rust backend with a webview-based frontend. This architecture provides the performance and safety of native Rust code with the flexibility and rapid development of modern web technologies. The Svelte frontend manages scene composition, streaming controls, settings panels, and utility windows such as the graphic planner for scheduled content changes. The application supports a theme system with import and export of .revotheme files, allowing complete customization of the user interface appearance.</p>
-
-    <p>RevoStream is developed under the iTVT Poland Group organization, a Polish media technology company building a comprehensive streaming and broadcasting ecosystem. The group's portfolio includes the iTVT desktop application for live television and video on demand, mobile applications for Android phones and television devices, a web-based VOD platform built with Vue 3, and a central web hub powered by Next.js. All projects emphasize open-source development, cross-platform compatibility, and modern user experience design.</p>
-
-    <p>The development roadmap follows four quarterly milestones for 2026. The first quarter delivered the core streaming engine with basic OBS integration and the initial Tauri application shell. The second quarter focuses on a web-based control panel with a REST API, real-time telemetry dashboard, and browser remote management. The third quarter targets full cross-platform support including Windows and macOS releases, mobile companion applications, and browser extensions for simplified streaming. The fourth quarter will launch the public beta program with community testing, plugin SDK documentation, and a theme marketplace. Current active development areas include the streaming core protocols, media processing pipeline in revo-lib, and the Svelte user interface components.</p>
-  </div>
+    <CTASection {t} />
+    <MilestonesSection {milestonesHTML} {t} />
+    <RoadmapSection {revostreamHTML} {revolibHTML} {revoMissing} {libMissing} {isEn} {t} />
+    <SEOHidden />
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 RevoStream - Open Source Project | Powered by iTVT Poland Group</p>
-    </div>
-  </footer>
+  <Footer />
 </body>
 </html>
