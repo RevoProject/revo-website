@@ -7,12 +7,12 @@
   --text: #E5E7EB;
   --text-muted: #94A3B8;
 
-  --primary: #3B82F6;
-  --primary-hover: #2563EB;
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
   --primary-soft: #1D4ED8;
 
   --success: #189546;
-  --warning: #d1880b;
+  --warning: #B57600;
   --status-added: var(--success);
   --status-inprogress: var(--primary);
   --status-future: var(--warning);
@@ -80,7 +80,7 @@ body {
   color: var(--text);
 }
 
-.lang-btn[aria-pressed="true"] {
+.lang-btn[aria-current="true"] {
   color: var(--primary);
   font-weight: 600;
 }
@@ -113,12 +113,13 @@ body {
   border: 1px solid rgba(59, 130, 246, 0.25);
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), 0 4px 24px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .cta-screenshot:hover {
   border-color: rgba(59, 130, 246, 0.6);
   box-shadow: 0 0 40px rgba(59, 130, 246, 0.35), 0 8px 40px rgba(0, 0, 0, 0.4);
+  transform: scale(1.3636);
 }
 
 .cta-screenshot img {
