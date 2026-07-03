@@ -402,6 +402,14 @@ body {
   color: var(--text-muted);
   padding: 3rem 1rem;
   font-size: 1.1rem;
+  display: none;
+}
+
+.roadmap:has(#filter-added:checked) .tab-content:not(:has(.roadmap-card[data-status="added"])) .empty-state-added,
+.roadmap:has(#filter-in-progress:checked) .tab-content:not(:has(.roadmap-card[data-status="in-progress"])) .empty-state-in-progress,
+.roadmap:has(#filter-partial:checked) .tab-content:not(:has(.roadmap-card[data-status="partial"])) .empty-state-partial,
+.roadmap:has(#filter-future:checked) .tab-content:not(:has(.roadmap-card[data-status="future"])) .empty-state-future {
+  display: block;
 }
 
 .roadmap-grid {

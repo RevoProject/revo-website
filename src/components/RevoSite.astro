@@ -13,13 +13,24 @@ const milestonesHTML = renderMilestonesHTML(lang);
 const revostreamHTML = renderRoadmapHTML("revostream", lang);
 const revolibHTML = renderRoadmapHTML("revolib", lang);
 const isEn = lang === "en";
-const siteUrl = "https://revostream.itvt.xyz";
+const siteUrl = "https://revostream.in";
 const pagePath = isEn ? "" : "/pl";
 const pageUrl = siteUrl + (isEn ? "" : "/pl");
 const pageTitle = t("seo-title");
 const pageDesc = t("seo-desc");
 const ogTitle = t("seo-og-title");
 const ogDesc = t("seo-og-desc");
+
+const allFilterStatuses = ["added", "in-progress", "partial", "future"];
+
+function missingStatuses(product) {
+  const items = roadmapItems[product] || [];
+  const present = new Set(items.map(i => i.status));
+  return allFilterStatuses.filter(s => !present.has(s));
+}
+
+const revoMissing = missingStatuses("revostream");
+const libMissing = missingStatuses("revolib");
 ---
 <html lang={lang}>
 <head>
@@ -215,19 +226,17 @@ const ogDesc = t("seo-og-desc");
       </div>
 
       <div class="tab-content" data-content="revostream">
-        {(roadmapItems["revostream"] || []).length > 0 ? (
-          <div class="roadmap-grid" id="roadmap-grid-revostream" set:html={revostreamHTML}></div>
-        ) : (
-          <p class="empty-state">{t("no-data")}</p>
-        )}
+        <div class="roadmap-grid" id="roadmap-grid-revostream" set:html={revostreamHTML}></div>
+        {revoMissing.map(status => (
+          <p class={`empty-state empty-state-${status.replace(/\s+/g, "-")}`}>{t("no-data")}</p>
+        ))}
       </div>
 
       <div class="tab-content" data-content="revolib">
-        {(roadmapItems["revolib"] || []).length > 0 ? (
-          <div class="roadmap-grid" id="roadmap-grid-revolib" set:html={revolibHTML}></div>
-        ) : (
-          <p class="empty-state">{t("no-data")}</p>
-        )}
+        <div class="roadmap-grid" id="roadmap-grid-revolib" set:html={revolibHTML}></div>
+        {libMissing.map(status => (
+          <p class={`empty-state empty-state-${status.replace(/\s+/g, "-")}`}>{t("no-data")}</p>
+        ))}
       </div>
     </div>
   </section>
