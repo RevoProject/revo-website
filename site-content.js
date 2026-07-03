@@ -35,7 +35,7 @@ export const translations = {
     "history-step3-desc": "Target official libobs and port via revo-lib to Rust bindings for long-term, cross-platform support."
   },
   pl: {
-    cta: "RevoLution w streamingu",
+    cta: "RevoLucja w streamingu",
     tryAlpha: "Wypróbuj wersję alpha",
     milestones: "Znaczne osiągnięcia",
     roadmap: "Mapa postępu",
