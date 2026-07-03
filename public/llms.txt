@@ -3,20 +3,75 @@
 > Open-source control center for modern streaming workflows. Supports RTMP, SRT, and WebRTC with scene management, a plugin system, and cross-platform bindings. Built by iTVT Poland Group as a sub-brand.
 
 RevoStream is composed of two main products:
-- **RevoStream** — the streaming control center application (core engine, scene management, plugin system)
+- **RevoStream** — the streaming control center desktop application (core engine, scene management, plugin system)
 - **revo-lib** — low-level Rust library with media processing, FFI bindings, and performance tools
 
-The project is under active development. The streaming core engine is in progress; scene management and plugin system are planned.
+The project is under active development (v0.1.0 Alpha). The streaming core engine is in progress; scene management and plugin system are planned. The application is built with Tauri (Rust + Svelte webview) and targets Linux natively with experimental Windows and macOS support via an OBS bootstrapper.
+
+## Architecture
+
+The RevoStream stack is organized in layers:
+
+- **revo-lib** — Safe Rust wrapper around libobs-rs/libobs-wrapper. Provides `ObsContext` (runtime init), `StreamingOutput` (RTMP/SRT/WebRTC), `RecordingOutput` (local recording), and a trait-based polymorphic output system. No manual bindgen; uses pre-built production-grade OBS FFI bindings.
+- **src-tauri** — Tauri Rust backend bridging revo-lib to the webview frontend.
+- **src** — Svelte 5 frontend (70% of codebase). Scene/source management UI, streaming controls, theme system, graphic planner utility windows.
+- **OBS runtime** — Bundled via bootstrapper on Windows/macOS; native on Linux.
+
+Supported streaming protocols: RTMP, RTMPS, SRT, RIST, WHIP, WebRTC. Official Kick integration.
+
+## iTVT Poland Group
+
+RevoStream is developed under the iTVT Poland Group organization. iTVT Poland Group builds a broader media ecosystem:
+
+- [iTVT — Media Przyszłości](https://itvt.xyz) — Central portal
+- **iTVT Desktop App** (Tauri + Vue 3) — Live TV via GStreamer HLS→MJPEG, VOD via Odysee/LBRY API, EPG, user profiles, bookmarks
+- **iTVT Mobile/TV App** (Android) — Mobile + Android TV client
+- **iTVT VOD** (Vue 3) — Web-based video on demand platform
+- **iTVT Hub** (Next.js) — Central website
+- **iTVT Roadmap** — Public product roadmap
+
+Social channels: [YouTube](https://youtube.com/@itvt_pl), [Instagram](https://instagram.com/itvt_poland), [TikTok](https://tiktok.com/@itvt_poland), [GitHub](https://github.com/open-itvt)
+
+## Milestones
+
+- **Q1 2026 (Added):** Core streaming engine implementation — RTMP, SRT, WebRTC support via revo-lib, basic OBS runtime integration, Tauri desktop shell, initial Svelte UI
+- **Q2 2026 (Future):** Web interface and control panel — browser-based remote control, REST API for stream management, web dashboard with real-time telemetry
+- **Q3 2026 (Future):** Multi-platform integration — Windows and macOS full support, Android/iOS streaming companion apps, browser extension for one-click streaming
+- **Q4 2026 (Future):** Beta release and community testing — public beta program, plugin SDK documentation, community theme marketplace, performance benchmarks
+
+## Roadmap
+
+### RevoStream
+- **Streaming Core (In Progress):** RTMP, SRT, WebRTC protocol support, OBS runtime lifecycle management, multi-profile streaming configurations, hardware encoding (NVENC, VAAPI, VideoToolbox)
+- **Scene Management (Future):** Dynamic scene switching with transitions, overlay compositing (text, images, web widgets), audio mixer with per-source volume and filters, source cloning and grouping
+- **Plugin System (Future):** Extensible architecture with WASM-based plugins, plugin SDK in Rust and JavaScript, community plugin registry, hot-reload development workflow
+
+### revo-lib
+- **Media Processing (In Progress):** Low-level video/audio codec wrappers, frame buffer management, format conversion pipeline, hardware acceleration abstraction layer
+- **FFI Bindings (Future):** Official bindings for Python, C, C++, and Node.js, cross-compilation toolchain for all target platforms, automated binding generation from Rust API surface
+- **Performance Tools (Future):** Benchmarking harness, profile-guided optimization (PGO) builds, memory usage analysis tools, streaming latency measurement suite
 
 ## Docs
 
 - [README](README.md): Project overview and setup instructions
-- [Github org](https://github.com/revoproject/revo-stream): RevoProject Github
-- [Source code](https://github.com/revoproject/revo-stream): GitHub repository
+- [Source code](https://github.com/revoproject/revo-stream): RevoStream GitHub repository
 - [Website source](https://github.com/revoproject/revo-website): Website repository
+- [revo-lib](https://github.com/revoproject/revo-lib): Low-level Rust library source
+- [Releases](https://github.com/revoproject/revo-stream/releases): Download alpha builds
+
+## Related Projects
+
+- [iTVT Desktop App](https://github.com/open-itvt/desktop-app): Tauri + Vue 3 live TV and VOD desktop application
+- [iTVT Mobile App](https://github.com/open-itvt/mobile-app): Android mobile and TV client
+- [iTVT VOD](https://github.com/open-itvt/vod): Video on demand web platform
+- [iTVT Hub](https://github.com/open-itvt/hub): Central website built with Next.js
+- [iTVT Roadmap](https://github.com/open-itvt/roadmap): Public roadmap for iTVT projects
 
 ## Optional
 
 - [iTVT Poland Group](https://itvt.xyz): Parent organization
 - [YouTube](https://youtube.com/@itvt_pl): iTVT Poland Group channel
+- [Instagram](https://instagram.com/itvt_poland): iTVT Poland Group Instagram
+- [TikTok](https://tiktok.com/@itvt_poland): iTVT Poland Group TikTok
 - [GitHub org](https://github.com/open-itvt): iTVT Poland Group GitHub
+- [GitHub org](https://github.com/revoproject): RevoProject GitHub
