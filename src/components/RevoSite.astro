@@ -114,20 +114,21 @@ const libMissing = missingStatuses("revolib");
       <div class="logo">RevoStream</div>
       <div class="lang-switcher">
         {isEn ? (
-          <span class="lang-btn" aria-pressed="true">EN</span>
+          <span class="lang-btn" aria-current="true">EN</span>
         ) : (
-          <a href="/" class="lang-btn" aria-pressed="false">EN</a>
+          <a href="/" class="lang-btn" hreflang="en">EN</a>
         )}
         <span class="separator">|</span>
         {isEn ? (
-          <a href="/pl/" class="lang-btn" aria-pressed="false">PL</a>
+          <a href="/pl/" class="lang-btn" hreflang="pl">PL</a>
         ) : (
-          <span class="lang-btn" aria-pressed="true">PL</span>
+          <span class="lang-btn" aria-current="true">PL</span>
         )}
       </div>
     </div>
   </header>
 
+  <main>
   <section class="cta">
     <div class="container">
       <h1 class="cta-text">{t("cta")}</h1>
@@ -243,6 +244,7 @@ const libMissing = missingStatuses("revolib");
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="footer">
     <div class="container">
