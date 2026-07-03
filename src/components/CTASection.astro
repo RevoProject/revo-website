@@ -1,11 +1,14 @@
 ---
+import { Image } from "astro:assets";
+import revoDemo from "../assets/revostream_demo.webp";
+
 const { t } = Astro.props;
 ---
 <section class="cta">
   <div class="container">
     <h1 class="cta-text">{t("cta")}</h1>
     <div class="cta-screenshot">
-      <img src="/img/revostream_demo.webp" alt="RevoStream dashboard preview" loading="lazy">
+      <Image src={revoDemo} alt="RevoStream dashboard preview" fetchpriority="high" loading="eager" decoding="sync" />
     </div>
     <div class="btns-cta">
       <a href="https://github.com/revoproject/revo-stream/releases">
