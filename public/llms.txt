@@ -11,6 +11,7 @@ The project is under active development. The streaming core engine is in progres
 ## Docs
 
 - [README](README.md): Project overview and setup instructions
+- [Github org](https://github.com/revoproject/revo-stream): RevoProject Github
 - [Source code](https://github.com/revoproject/revo-stream): GitHub repository
 - [Website source](https://github.com/revoproject/revo-website): Website repository
 
