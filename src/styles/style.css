@@ -106,6 +106,7 @@ body {
 }
 
 .cta-screenshot {
+  width: 55%;
   max-width: 900px;
   margin: 0 auto 2.5rem;
   border-radius: calc(var(--radius) * 2);
