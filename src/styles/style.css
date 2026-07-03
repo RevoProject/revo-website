@@ -397,6 +397,13 @@ body {
   border-color: var(--primary);
 }
 
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+  font-size: 1.1rem;
+}
+
 .roadmap-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
