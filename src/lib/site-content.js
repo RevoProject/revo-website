@@ -37,7 +37,8 @@ export const translations = {
     "seo-desc": "Open-source control center for modern streaming workflows. RTMP, SRT, WebRTC. Scene management, plugin system, and cross-platform support. Built by iTVT Poland Group.",
     "seo-keywords": "RevoStream, streaming, RTMP, SRT, WebRTC, OBS, streaming control center, open-source, iTVT Poland Group, scene management, live streaming, broadcast",
     "seo-og-title": "RevoStream — Open-Source Streaming Control Center",
-    "seo-og-desc": "Open-source control center for modern streaming workflows with RTMP, SRT, WebRTC support. Scene management, plugin system, and more. Built by iTVT Poland Group."
+    "seo-og-desc": "Open-source control center for modern streaming workflows with RTMP, SRT, WebRTC support. Scene management, plugin system, and more. Built by iTVT Poland Group.",
+    "no-data": "No data available"
   },
   pl: {
     cta: "RevoLucja w streamingu",
@@ -77,7 +78,8 @@ export const translations = {
     "seo-desc": "Otwarto-źródłowe centrum sterowania dla nowoczesnych workflowów streamingowych. RTMP, SRT, WebRTC. Zarządzanie scenami, system wtyczek i wsparcie wieloplatformowe. Stworzone przez iTVT Poland Group.",
     "seo-keywords": "RevoStream, streaming, RTMP, SRT, WebRTC, OBS, centrum sterowania streamingiem, open-source, iTVT Poland Group, zarządzanie scenami, live streaming, transmisja",
     "seo-og-title": "RevoStream — Otwarto-źródłowe Centrum Sterowania Streamingiem",
-    "seo-og-desc": "Otwarto-źródłowe centrum sterowania dla nowoczesnych workflowów streamingowych z wsparciem RTMP, SRT, WebRTC. Zarządzanie scenami, system wtyczek i więcej. Stworzone przez iTVT Poland Group."
+    "seo-og-desc": "Otwarto-źródłowe centrum sterowania dla nowoczesnych workflowów streamingowych z wsparciem RTMP, SRT, WebRTC. Zarządzanie scenami, system wtyczek i więcej. Stworzone przez iTVT Poland Group.",
+    "no-data": "Brak dostępnych danych"
   }
 };
 

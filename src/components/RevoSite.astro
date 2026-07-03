@@ -1,6 +1,6 @@
 ---
 import "../styles/style.css";
-import { renderMilestonesHTML, renderRoadmapHTML, translations } from "../lib/site-content.js";
+import { renderMilestonesHTML, renderRoadmapHTML, translations, roadmapItems } from "../lib/site-content.js";
 
 const { lang = "en" } = Astro.props;
 
@@ -215,11 +215,19 @@ const ogDesc = t("seo-og-desc");
       </div>
 
       <div class="tab-content" data-content="revostream">
-        <div class="roadmap-grid" id="roadmap-grid-revostream" set:html={revostreamHTML}></div>
+        {(roadmapItems["revostream"] || []).length > 0 ? (
+          <div class="roadmap-grid" id="roadmap-grid-revostream" set:html={revostreamHTML}></div>
+        ) : (
+          <p class="empty-state">{t("no-data")}</p>
+        )}
       </div>
 
       <div class="tab-content" data-content="revolib">
-        <div class="roadmap-grid" id="roadmap-grid-revolib" set:html={revolibHTML}></div>
+        {(roadmapItems["revolib"] || []).length > 0 ? (
+          <div class="roadmap-grid" id="roadmap-grid-revolib" set:html={revolibHTML}></div>
+        ) : (
+          <p class="empty-state">{t("no-data")}</p>
+        )}
       </div>
     </div>
   </section>
