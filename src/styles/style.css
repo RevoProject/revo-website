@@ -105,6 +105,27 @@ body {
   margin-right: auto;
 }
 
+.cta-screenshot {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  border-radius: calc(var(--radius) * 2);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), 0 4px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.cta-screenshot:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.35), 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cta-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .btns-cta{
   display: inline-flex;
   gap: 0.8rem;
