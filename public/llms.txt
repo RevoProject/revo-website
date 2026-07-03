@@ -64,7 +64,7 @@ Social channels: [YouTube](https://youtube.com/@itvt_pl), [Instagram](https://in
 - [iTVT Desktop App](https://github.com/open-itvt/desktop-app): Tauri + Vue 3 live TV and VOD desktop application
 - [iTVT Mobile App](https://github.com/open-itvt/mobile-app): Android mobile and TV client
 - [iTVT VOD](https://github.com/open-itvt/vod): Video on demand web platform
-- [iTVT Hub](https://github.com/open-itvt/hub): Central website built with Next.js
+- [iTVT Hub](https://github.com/open-itvt/hub): Closed site - first version of iTVT Channels integration
 - [iTVT Roadmap](https://github.com/open-itvt/roadmap): Public roadmap for iTVT projects
 
 ## Optional
