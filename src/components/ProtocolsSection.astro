@@ -1,0 +1,8 @@
+---
+import type { SiteContent } from "../lib/product-content";
+interface Props { content: SiteContent["protocols"]; }
+const { content } = Astro.props;
+---
+<div class="protocols" id="protocols"><div class="protocol-title">{content.builtFor}<br>{content.modernStreaming}</div><div class="protocol-list">
+<div class="proto"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 21h8m-4-3v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> RTMP</div><div class="proto"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg> SRT</div><div class="proto"><svg viewBox="0 0 24 24"><path d="M9 7V3m6 4V3M7 7h10v3a5 5 0 0 1-10 0V7Zm5 8v6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> RIST</div><div class="proto">☁ WHIP</div><div class="proto"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 20c.5-4 2.4-6 6-6s5.5 2 6 6M16 5.5a3 3 0 0 1 0 5.7M18 14c2 .6 3.1 2.2 3.5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> WebRTC</div><div class="proto">◉ OBS</div>
+</div></div>

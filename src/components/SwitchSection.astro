@@ -1,0 +1,49 @@
+---
+import type { SiteContent } from "../lib/product-content";
+interface Props { content: SiteContent["switch"]; }
+const { content } = Astro.props;
+---
+<section class="section switch-section" id="why-switch">
+  <div class="sectionhead">
+    <div class="kicker">{content.whySwitch}</div>
+    <h2>{content.fromClosedPlatforms}<br>{content.toAnOpenStack}</h2>
+    <p>{content.youDonTSwitchBecauseStreaming}</p>
+  </div>
+
+  <div class="switch-table-wrap">
+    <table class="switch-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>{content.closedPlatformFirst}</th>
+          <th class="revo-col">RevoStream</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>{content.businessModel}</th><td>{content.platformServiceDependencies}</td><td class="revo-col"><strong>Open source</strong></td></tr>
+        <tr><th>Workflow</th><td>{content.ecosystemControlled}</td><td class="revo-col"><strong>{content.yourStack}</strong></td></tr>
+        <tr><th>{content.architecture}</th><td>Cloud / platform-first</td><td class="revo-col"><strong>Desktop-first</strong></td></tr>
+        <tr><th>{content.extensibility}</th><td>{content.platformDefined}</td><td class="revo-col"><strong>{content.openAndExtensible}</strong></td></tr>
+        <tr><th>Core</th><td>{content.vendorControlled}</td><td class="revo-col"><strong>{content.libobsTodayRustCoreNext}</strong></td></tr>
+        <tr><th>{content.protocols}</th><td>{content.platformIntegrations}</td><td class="revo-col"><strong>{content.openProtocols}</strong></td></tr>
+        <tr><th>{content.development}</th><td>{content.productRoadmap}</td><td class="revo-col"><strong>{content.openDevelopment}</strong></td></tr>
+        <tr><th>{content.platforms}</th><td>{content.platformSpecificConstraints}</td><td class="revo-col"><strong>Linux · Windows · macOS</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="core-evolution">
+    <div class="core-label">{content.architectureEvolution}</div>
+    <div class="core-flow">
+      <div class="core-stage"><span>{content.today}</span><strong>libobs</strong><small>{content.compatibilityMatureMediaPipeline}</small></div>
+      <div class="core-arrow">→</div>
+      <div class="core-stage next"><span>{content.next}</span><strong>revo-lib → Rust core</strong><small>{content.nativeArchitectureLongTermControl}</small></div>
+    </div>
+  </div>
+
+  <div class="switch-note">
+    <span class="mono">{content.notAnObsKiller}</span>
+    <strong>{content.obsProvedThatOpenSourceStreaming}</strong>
+    <p>{content.revostreamTakesThatIdeaInA}</p>
+  </div>
+</section>

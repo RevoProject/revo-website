@@ -1,0 +1,53 @@
+---
+import type { SiteContent } from "../lib/product-content";
+interface Props { content: SiteContent["capabilities"]; }
+const { content } = Astro.props;
+---
+<section class="section capabilities" id="capabilities">
+  <div class="sectionhead">
+    <div class="kicker">{content.whatCanIActuallyDoWith}</div>
+    <h2>{content.productionToolsThat}<br>{content.feelLikeARealStudio}</h2>
+    <p>{content.notJustAStreamingEngineRevostream}</p>
+  </div>
+
+  <div class="cap-grid">
+    <article class="cap-card">
+      <div class="cap-ui ui-live">
+        <div class="cap-ui-bar"><span>● LIVE</span><i></i><i></i><i></i></div>
+        <div class="cap-ui-stage"><b>STREAM LIVE</b><small>RTMP · SRT · WebRTC</small></div>
+        <div class="cap-ui-footer"><span>●</span> 00:42:18 <em>1080p · 60 FPS</em></div>
+      </div>
+      <div class="cap-body"><div class="cap-num">01</div><h3>{content.goLive}</h3><p>RTMP · SRT · WebRTC</p><span>{content.streamWithModernProtocolsAndKeep}</span></div>
+    </article>
+
+    <article class="cap-card">
+      <div class="cap-ui ui-scenes">
+        <div class="cap-ui-bar"><span>SCENES</span><i></i><i></i><i></i></div>
+        <div class="scene-row active"><b>01</b> Starting Soon <span>•••</span></div>
+        <div class="scene-row"><b>02</b> Live <span>•••</span></div>
+        <div class="scene-row"><b>03</b> Camera Only <span>•••</span></div>
+        <div class="scene-row"><b>04</b> BRB <span>•••</span></div>
+      </div>
+      <div class="cap-body"><div class="cap-num">02</div><h3>{content.buildScenes}</h3><p>{content.cameraScreenBrowserMedia}</p><span>{content.composeScenesFromTheSourcesThat}</span></div>
+    </article>
+
+    <article class="cap-card">
+      <div class="cap-ui ui-controls">
+        <div class="cap-ui-bar"><span>PRODUCTION</span><i></i><i></i><i></i></div>
+        <div class="control-grid"><div><b>↗</b><small>Transitions</small></div><div><b>◉</b><small>Audio</small></div><div><b>▣</b><small>Overlays</small></div><div><b>✦</b><small>Sources</small></div></div>
+      </div>
+      <div class="cap-body"><div class="cap-num">03</div><h3>{content.controlProduction}</h3><p>{content.scenesTransitionsAudioOverlays}</p><span>{content.switchMixAndControlTheStream}</span></div>
+    </article>
+
+    <article class="cap-card">
+      <div class="cap-ui ui-output">
+        <div class="cap-ui-bar"><span>STREAM OUTPUTS</span><i></i><i></i><i></i></div>
+        <div class="output-row"><b>●</b><span>Twitch</span><em>LIVE</em></div>
+        <div class="output-row"><b>●</b><span>YouTube</span><em>LIVE</em></div>
+        <div class="output-row"><b>●</b><span>Kick</span><em>LIVE</em></div>
+        <div class="output-row"><b>+</b><span>Custom RTMP</span><em>ADD</em></div>
+      </div>
+      <div class="cap-body"><div class="cap-num">04</div><h3>{content.streamAnywhere}</h3><p>{content.twitchYoutubeKickCustomRtmp}</p><span>{content.useStandardOutputsAndCustomEndpoints}</span></div>
+    </article>
+  </div>
+</section>

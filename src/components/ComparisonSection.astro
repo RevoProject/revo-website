@@ -1,0 +1,45 @@
+---
+import type { SiteContent } from "../lib/product-content";
+interface Props { content: SiteContent["comparison"]; }
+const { content } = Astro.props;
+---
+<section class="section product-compare" id="compare">
+  <div class="sectionhead">
+    <div class="kicker">{content.whyRevostream}</div>
+    <h2>{content.thePowerOfObs}<br>{content.theExperienceOfAModernStudio}</h2>
+    <p>{content.yourObsConceptsAndEcosystemWith}</p>
+  </div>
+
+  <div class="compare-table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>{content.capability}</th>
+          <th>OBS</th>
+          <th>Streamlabs</th>
+          <th class="revo-col">RevoStream</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>{content.interface}</th><td>{content.classic}</td><td>{content.creatorFocused}</td><td class="revo-col"><strong>{content.modernDesktopUi}</strong></td></tr>
+        <tr><th>{content.obsPlugins}</th><td><span class="check">✓</span>{content.native}</td><td><span class="partial">◐</span>{content.supported}</td><td class="revo-col"><strong><span class="check">✓</span>{content.supported2}</strong></td></tr>
+        <tr><th>Scenes &amp; sources</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td class="revo-col"><strong><span class="check">✓</span></strong></td></tr>
+        <tr><th>{content.productionTools}</th><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td class="revo-col"><strong><span class="check">✓</span></strong></td></tr>
+        <tr><th>Open source</th><td><span class="check">✓</span></td><td><span class="dash">—</span></td><td class="revo-col"><strong><span class="check">✓</span></strong></td></tr>
+        <tr><th>{content.extensible}</th><td><span class="check">✓</span></td><td><span class="partial">◐</span>{content.limited}</td><td class="revo-col"><strong><span class="check">✓</span>{content.openAndExtensible}</strong></td></tr>
+        <tr><th>{content.performance}</th><td>{content.native2}</td><td>{content.higherOverhead}</td><td class="revo-col"><strong>{content.benchmarkInProgress}</strong></td></tr>
+        <tr><th>{content.architecture}</th><td>C / C++</td><td>Platform ecosystem*</td><td class="revo-col"><strong>libobs → Rust core</strong></td></tr>
+        <tr><th>{content.coreDirection}</th><td>{content.established}</td><td>{content.established2}</td><td class="revo-col"><strong>{content.rustNativeRoadmap}</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="compare-footnote">
+    <span>*</span>{content.architectureAndPerformanceComparisonsShouldBe}</div>
+
+  <div class="obs-message">
+    <div class="obs-message-label">{content.notAnObsKiller}</div>
+    <h3>{content.aBetterWayToUseThe}</h3>
+    <p>{content.yourObsConceptsYourWorkflowA}</p>
+  </div>
+</section>

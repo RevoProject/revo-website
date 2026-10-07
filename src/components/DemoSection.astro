@@ -1,0 +1,13 @@
+---
+import type { SiteContent } from "../lib/product-content";
+import revoDemo from "../assets/revostream-studio.jpg";
+interface Props { content: SiteContent["demo"]; }
+const { content } = Astro.props;
+---
+<section class="demo-section">
+<div class="demo-head"><div><div class="kicker">{content.productDemo}</div><h2 style="margin-bottom:0">{content.seeTheStudio}</h2></div><div class="demo-note"><b>{content.noSubscriptionsNoVendorLockIn}</b><br>{content.revostreamKeepsTheProductionWorkflowOn}</div></div>
+<div class="demo-wrap"><div class="app">
+<div class="appbar"><span class="lights"><i></i><i></i><i></i></span><span class="appname">RevoStream</span><span class="appactions"><span class="rec">{content.record}</span><span class="live">{content.goLive}</span></span></div>
+<img class="appimg" src={revoDemo.src} width={revoDemo.width} height={revoDemo.height} alt="RevoStream streaming studio">
+</div><div class="demo-caption"><div><strong>{content.revostreamControlCenter}</strong>{content.scenesSourcesToolsAndLiveProduction}</div><div>DESKTOP WORKFLOW / OPEN SOURCE</div></div></div>
+</section>

@@ -1,0 +1,13 @@
+---
+import type { SiteContent } from "../lib/product-content";
+interface Props { content: SiteContent["why"]; }
+const { content } = Astro.props;
+---
+<section class="section" id="why">
+<div class="sectionhead"><div class="kicker">{content.whyRevostream}</div><h2>{content.ownTheStack}<br>{content.ownTheStream}</h2></div>
+<div class="reason-grid">
+<div class="reason-main"><h3>{content.streamingShouldnTMeanRentingYour}</h3><p>{content.revostreamIsBuiltAroundAnOpen}</p>
+<div class="reason-points"><div class="reason-point"><b>{content.noRecurringSoftwareTax}</b><span>{content.noSubscriptionWallBetweenYouAnd}</span></div><div class="reason-point"><b>{content.noVendorLockIn}</b><span>{content.yourWorkflowIsNotTiedTo}</span></div><div class="reason-point"><b>{content.openByDesign}</b><span>{content.builtInPublicWithACodebase}</span></div><div class="reason-point"><b>{content.builtForDevelopers}</b><span>{content.rustTauriSvelteAndLibobsForm}</span></div></div></div>
+<div class="reason-side"><div class="mono">{content.theRevoIdea}</div><p class="quote">{content.yourStreamShouldBeInfrastructureYou}</p><p style="color:#71849b;font-size:12px;line-height:1.6;margin:0">{content.builtOnLibobsTodayBuildingIts}</p></div>
+</div>
+</section>
