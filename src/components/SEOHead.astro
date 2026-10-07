@@ -1,17 +1,41 @@
 ---
-const { lang, siteUrl, pageUrl, pageTitle, pageDesc, ogTitle, ogDesc, isEn, t } = Astro.props;
+import type { Language } from "../lib/product-content";
+import studioPreview from "../assets/revostream-studio.jpg";
+interface Props {
+  lang: Language;
+  siteUrl: string;
+  pageUrl: string;
+  pageTitle: string;
+  pageDesc: string;
+}
+const { lang, siteUrl, pageUrl, pageTitle, pageDesc } = Astro.props;
+const isEn = lang === "en";
+const ogTitle = pageTitle;
+const ogDesc = pageDesc;
+const previewUrl = new URL(studioPreview.src, siteUrl).href;
 ---
 <head>
+  <script is:inline id="revo-theme-bootstrap">
+    try {
+      if (localStorage.getItem("revo-theme") === "light") document.documentElement.classList.add("light");
+    } catch {}
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{pageTitle}</title>
 
   <meta name="description" content={pageDesc}>
-  <meta name="keywords" content={t("seo-keywords")}>
+  <meta name="keywords" content="RevoStream, open source, live production, streaming, Rust, libobs, RTMP, SRT, WebRTC">
   <meta name="author" content="iTVT Poland Group">
   <meta name="robots" content="index, follow">
   <meta name="language" content={isEn ? "English" : "Polish"}>
   <link rel="canonical" href={pageUrl}>
+  <link rel="alternate" hreflang="en" href={siteUrl + "/"}>
+  <link rel="alternate" hreflang="pl" href={siteUrl + "/pl/"}>
+  <link rel="alternate" hreflang="x-default" href={siteUrl + "/"}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content={ogTitle}>
@@ -31,19 +55,14 @@ const { lang, siteUrl, pageUrl, pageTitle, pageDesc, ogTitle, ogDesc, isEn, t } 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <meta property="og:image" content={siteUrl + "/og-image.jpg"}>
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content={previewUrl}>
+  <meta property="og:image:width" content={String(studioPreview.width)}>
+  <meta property="og:image:height" content={String(studioPreview.height)}>
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content={ogTitle}>
 
-  <meta name="twitter:image" content={siteUrl + "/og-image.jpg"}>
+  <meta name="twitter:image" content={previewUrl}>
   <meta name="twitter:image:alt" content={ogTitle}>
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
 
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",

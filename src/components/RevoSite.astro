@@ -1,56 +1,51 @@
 ---
-import "../styles/style.css";
-import { renderMilestonesHTML, renderRoadmapHTML, translations, roadmapItems } from "../lib/site-content.js";
-
+import "../styles/product.css";
+import { productContent, type Language } from "../lib/product-content";
 import SEOHead from "./SEOHead.astro";
 import Header from "./Header.astro";
 import CTASection from "./CTASection.astro";
-import MilestonesSection from "./MilestonesSection.astro";
+import DemoSection from "./DemoSection.astro";
+import FeaturesSection from "./FeaturesSection.astro";
+import CapabilitiesSection from "./CapabilitiesSection.astro";
+import ProtocolsSection from "./ProtocolsSection.astro";
+import WhySection from "./WhySection.astro";
+import SwitchSection from "./SwitchSection.astro";
+import ComparisonSection from "./ComparisonSection.astro";
+import CommunitySection from "./CommunitySection.astro";
 import RoadmapSection from "./RoadmapSection.astro";
-import SEOHidden from "./SEOHidden.astro";
+import MilestonesSection from "./MilestonesSection.astro";
 import Footer from "./Footer.astro";
+import BackToTop from "./BackToTop.astro";
 
-const { lang = "en" } = Astro.props;
-
-function t(key) {
-  const table = translations[lang] || translations.en || {};
-  return table[key] || (translations.en && translations.en[key]) || key;
-}
-
-const milestonesHTML = renderMilestonesHTML(lang);
-const revostreamHTML = renderRoadmapHTML("revostream", lang);
-const revolibHTML = renderRoadmapHTML("revolib", lang);
-const isEn = lang === "en";
+interface Props { lang: Language; }
+const { lang } = Astro.props;
+const content = productContent[lang];
 const siteUrl = "https://revostream.in";
-const pageUrl = siteUrl + (isEn ? "" : "/pl");
-const pageTitle = t("seo-title");
-const pageDesc = t("seo-desc");
-const ogTitle = t("seo-og-title");
-const ogDesc = t("seo-og-desc");
-
-const allFilterStatuses = ["added", "in-progress", "partial", "future"];
-
-function missingStatuses(product) {
-  const items = roadmapItems[product] || [];
-  const present = new Set(items.map(i => i.status));
-  return allFilterStatuses.filter(s => !present.has(s));
-}
-
-const revoMissing = missingStatuses("revostream");
-const libMissing = missingStatuses("revolib");
+const pageUrl = siteUrl + (lang === "en" ? "/" : "/pl/");
+const pageTitle = lang === "en" ? "RevoStream — Stream Without Limits" : "RevoStream — Streamuj bez ograniczeń";
+const pageDesc = content.hero.theOpenSourceAlternativeToClosed;
 ---
+<!doctype html>
 <html lang={lang}>
-  <SEOHead {lang} {siteUrl} {pageUrl} {pageTitle} {pageDesc} {ogTitle} {ogDesc} {isEn} {t} />
-<body>
-  <Header {isEn} />
-
-  <main>
-    <CTASection {t} />
-    <MilestonesSection {milestonesHTML} {t} />
-    <RoadmapSection {revostreamHTML} {revolibHTML} {revoMissing} {libMissing} {isEn} {t} />
-    <SEOHidden />
-  </main>
-
-  <Footer />
-</body>
+  <SEOHead {lang} {siteUrl} {pageUrl} {pageTitle} {pageDesc} />
+  <body>
+    <div class="wrap">
+      <Header {lang} content={content.header} />
+      <main>
+        <CTASection content={content.hero} />
+        <DemoSection content={content.demo} />
+        <FeaturesSection content={content.features} />
+        <CapabilitiesSection content={content.capabilities} />
+        <ProtocolsSection content={content.protocols} />
+        <WhySection content={content.why} />
+        <SwitchSection content={content.switch} />
+        <ComparisonSection content={content.comparison} />
+        <CommunitySection content={content.community} />
+        <RoadmapSection content={content.roadmap} />
+        <MilestonesSection content={content.history} />
+      </main>
+      <Footer />
+    </div>
+    <BackToTop />
+  </body>
 </html>

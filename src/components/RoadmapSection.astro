@@ -1,46 +1,13 @@
 ---
-const { revostreamHTML, revolibHTML, revoMissing, libMissing, isEn, t } = Astro.props;
+import type { SiteContent } from "../lib/product-content";
+interface Props { content: SiteContent["roadmap"]; }
+const { content } = Astro.props;
 ---
-<section class="roadmap">
-  <div class="container">
-    <h2>{t("roadmap")}</h2>
-
-    <input type="radio" name="tab" id="tab-revostream" hidden checked>
-    <input type="radio" name="tab" id="tab-revolib" hidden>
-
-    <div class="tabs">
-      <label for="tab-revostream" class="tab">RevoStream</label>
-      <label for="tab-revolib" class="tab">revo-lib</label>
-    </div>
-
-    <input type="radio" name="filter" id="filter-all" hidden checked>
-    <input type="radio" name="filter" id="filter-added" hidden>
-    <input type="radio" name="filter" id="filter-in-progress" hidden>
-    <input type="radio" name="filter" id="filter-partial" hidden>
-    <input type="radio" name="filter" id="filter-future" hidden>
-
-    <div class="sort-row roadmap-filter-row">
-      <div class="filter-badges" role="toolbar" aria-label={isEn ? "Filter roadmap by status" : "Filtruj roadmapę według statusu"}>
-        <label for="filter-all" class="filter-badge">{t("filter-all")}</label>
-        <label for="filter-added" class="filter-badge">{t("status-added")}</label>
-        <label for="filter-in-progress" class="filter-badge">{t("status-in-progress")}</label>
-        <label for="filter-partial" class="filter-badge">{t("status-partial")}</label>
-        <label for="filter-future" class="filter-badge">{t("status-future")}</label>
-      </div>
-    </div>
-
-    <div class="tab-content" data-content="revostream">
-      <div class="roadmap-grid" id="roadmap-grid-revostream" set:html={revostreamHTML}></div>
-      {revoMissing.map(status => (
-        <p class={`empty-state empty-state-${status.replace(/\s+/g, "-")}`}>{t("no-data")}</p>
-      ))}
-    </div>
-
-    <div class="tab-content" data-content="revolib">
-      <div class="roadmap-grid" id="roadmap-grid-revolib" set:html={revolibHTML}></div>
-      {libMissing.map(status => (
-        <p class={`empty-state empty-state-${status.replace(/\s+/g, "-")}`}>{t("no-data")}</p>
-      ))}
-    </div>
-  </div>
+<section class="section" id="roadmap">
+<div class="sectionhead"><div class="kicker">{content.roadmap}</div><h2>{content.whatSNext}</h2><p>{content.milestonesStayVisibleButTheyCome}</p></div>
+<div class="timeline">
+<div class="timeline-item"><div class="timeline-head"><h3>Q2 — STREAMING CORE</h3><span class="status-badge">{content.inProgress}</span></div><div class="timeline-content"><p class="road-tags">RTMP · SRT · WebRTC</p><p>{content.nativeCapturePipelineStreamOutputAnd}</p></div></div>
+<div class="timeline-item"><div class="timeline-head"><h3>{content.q3ProductionLayer}</h3><span class="status-badge">{content.planned}</span></div><div class="timeline-content"><p class="road-tags">{content.scenesSourcesTransitions}</p><p>{content.dynamicSceneSwitchingOverlaysAndProduction}</p></div></div>
+<div class="timeline-item"><div class="timeline-head"><h3>Q4 — CROSS-PLATFORM</h3><span class="status-badge">{content.planned2}</span></div><div class="timeline-content"><p class="road-tags">Linux · Windows · macOS</p><p>{content.stableDesktopBuildsAndPlatformSpecific}</p></div></div>
+</div>
 </section>
