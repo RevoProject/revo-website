@@ -1,111 +1,43 @@
 ---
-import type { Language } from "../../lib/product-content";
-
-interface Props {
-  content: {
-    sponsors: string;
-    shortInfo: string;
-    partners: string;
-    mainPartner: string;
-    itvt: string;
-  };
-}
-
+import type { SiteContent } from "../lib/product-content";
+interface Props { content: SiteContent["sponsors"]; }
 const { content } = Astro.props;
 ---
-
-<section id="sponsors-partners" class="sponsors-partners">
-  <div class="container">
-    <div class="sponsors-section">
-      <h2 class="section-title">{content.sponsors}</h2>
-      <p class="sponsors-info">{content.shortInfo}</p>
-      <div class="sponsors-logos" role="list" aria-label="Sponsors">
-        <!-- Sponsor logos will be added here -->
-      </div>
+<section class="sponsors-partners">
+  <div class="wrap">
+    <div class="sectionhead" style="margin-bottom: 40px;">
+      <span class="kicker">{content.sponsors}</span>
+      <h2>{content.partners}</h2>
+      <p style="max-width: 720px; color: var(--muted); line-height: 1.7;">{content.shortInfo}</p>
     </div>
 
-    <div class="partners-section">
-      <h2 class="section-title">{content.partners}</h2>
-      <div class="partners-grid">
-        <article class="partner-card main-partner">
-          <span class="partner-badge">{content.mainPartner}</span>
-          <a href="https://itvt.pl" target="_blank" rel="noopener noreferrer" class="partner-link">
-            <img 
-              src="https://i.imgur.com/Sbh3a8O.png" 
-              alt={content.itvt}
-              class="partner-logo"
-              width="150"
-              height="auto"
-              loading="lazy"
-            />
-          </a>
-        </article>
-      </div>
+    <div class="partners-grid">
+      <article class="partner-card main-partner">
+        <span class="partner-badge">{content.mainPartner}</span>
+        <a href="https://itvt.pl" target="_blank" rel="noopener noreferrer" class="partner-link">
+          <img 
+            src="https://i.imgur.com/Sbh3a8O.png" 
+            alt={content.itvt}
+            class="partner-logo"
+            width="150"
+            height="auto"
+            loading="lazy"
+          />
+        </a>
+      </article>
     </div>
   </div>
 </section>
 
 <style>
   .sponsors-partners {
-    padding: var(--space-4xl) 0;
-    background: var(--bg-secondary);
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-lg);
-  }
-
-  .sponsors-section,
-  .partners-section {
-    margin-bottom: var(--space-4xl);
-  }
-
-  .sponsors-section:last-child,
-  .partners-section:last-child {
-    margin-bottom: 0;
-  }
-
-  .section-title {
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: var(--space-md);
-    text-align: center;
-  }
-
-  .sponsors-info {
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-    max-width: 800px;
-    margin: 0 auto var(--space-2xl);
-    text-align: center;
-    line-height: 1.7;
-  }
-
-  .sponsors-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-xl);
-    align-items: center;
-  }
-
-  .sponsors-logos img {
-    max-height: 60px;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-  }
-
-  .sponsors-logos img:hover {
-    opacity: 1;
+    padding: 80px 0;
   }
 
   .partners-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
     justify-items: center;
   }
 
@@ -113,30 +45,32 @@ const { content } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-lg);
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 14px;
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: linear-gradient(180deg, var(--panel), #08111d);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    min-width: 280px;
   }
 
   .partner-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    border-color: #2c5280;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
   }
 
   .partner-card.main-partner {
     grid-column: 1 / -1;
-    max-width: 400px;
+    max-width: 520px;
   }
 
   .partner-badge {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--accent-primary);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: #5f91ff;
   }
 
   .partner-link {
@@ -144,35 +78,48 @@ const { content } = Astro.props;
   }
 
   .partner-logo {
-    width: 150px;
+    width: 180px;
     height: auto;
-    filter: grayscale(100%);
-    transition: filter 0.2s ease;
+    filter: grayscale(100%) saturate(0.8);
+    transition: filter 0.2s ease, transform 0.2s ease;
   }
 
   .partner-link:hover .partner-logo {
-    filter: grayscale(0%);
+    filter: grayscale(0%) saturate(1);
+    transform: scale(1.02);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .sponsors-partners {
-      padding: var(--space-3xl) 0;
+      padding: 60px 0;
     }
-
-    .section-title {
-      font-size: var(--text-2xl);
+    .partner-card {
+      padding: 28px;
     }
-
-    .sponsors-info {
-      font-size: var(--text-base);
+    .partner-logo {
+      width: 160px;
     }
+  }
 
+  @media (max-width: 650px) {
+    .sponsors-partners {
+      padding: 48px 0;
+    }
+    .partners-grid {
+      grid-template-columns: 1fr;
+    }
     .partner-card.main-partner {
       max-width: 100%;
     }
-
+    .partner-card {
+      min-width: 0;
+      padding: 24px;
+    }
     .partner-logo {
-      width: 120px;
+      width: 140px;
+    }
+    .sectionhead h2 {
+      font-size: 38px;
     }
   }
 </style>
