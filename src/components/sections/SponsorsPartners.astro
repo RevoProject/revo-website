@@ -1,0 +1,178 @@
+---
+import type { Language } from "../../lib/product-content";
+
+interface Props {
+  content: {
+    sponsors: string;
+    shortInfo: string;
+    partners: string;
+    mainPartner: string;
+    itvt: string;
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<section id="sponsors-partners" class="sponsors-partners">
+  <div class="container">
+    <div class="sponsors-section">
+      <h2 class="section-title">{content.sponsors}</h2>
+      <p class="sponsors-info">{content.shortInfo}</p>
+      <div class="sponsors-logos" role="list" aria-label="Sponsors">
+        <!-- Sponsor logos will be added here -->
+      </div>
+    </div>
+
+    <div class="partners-section">
+      <h2 class="section-title">{content.partners}</h2>
+      <div class="partners-grid">
+        <article class="partner-card main-partner">
+          <span class="partner-badge">{content.mainPartner}</span>
+          <a href="https://itvt.pl" target="_blank" rel="noopener noreferrer" class="partner-link">
+            <img 
+              src="https://i.imgur.com/Sbh3a8O.png" 
+              alt={content.itvt}
+              class="partner-logo"
+              width="150"
+              height="auto"
+              loading="lazy"
+            />
+          </a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sponsors-partners {
+    padding: var(--space-4xl) 0;
+    background: var(--bg-secondary);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+
+  .sponsors-section,
+  .partners-section {
+    margin-bottom: var(--space-4xl);
+  }
+
+  .sponsors-section:last-child,
+  .partners-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-title {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    text-align: center;
+  }
+
+  .sponsors-info {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto var(--space-2xl);
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .sponsors-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .sponsors-logos img {
+    max-height: 60px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .sponsors-logos img:hover {
+    opacity: 1;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+    justify-items: center;
+  }
+
+  .partner-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .partner-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .partner-card.main-partner {
+    grid-column: 1 / -1;
+    max-width: 400px;
+  }
+
+  .partner-badge {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .partner-link {
+    display: block;
+  }
+
+  .partner-logo {
+    width: 150px;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.2s ease;
+  }
+
+  .partner-link:hover .partner-logo {
+    filter: grayscale(0%);
+  }
+
+  @media (max-width: 768px) {
+    .sponsors-partners {
+      padding: var(--space-3xl) 0;
+    }
+
+    .section-title {
+      font-size: var(--text-2xl);
+    }
+
+    .sponsors-info {
+      font-size: var(--text-base);
+    }
+
+    .partner-card.main-partner {
+      max-width: 100%;
+    }
+
+    .partner-logo {
+      width: 120px;
+    }
+  }
+</style>

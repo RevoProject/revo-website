@@ -3,17 +3,18 @@ import "../styles/product.css";
 import { productContent, type Language } from "../lib/product-content";
 import SEOHead from "./SEOHead.astro";
 import Header from "./Header.astro";
-import CTASection from "./CTASection.astro";
-import DemoSection from "./DemoSection.astro";
-import FeaturesSection from "./FeaturesSection.astro";
-import CapabilitiesSection from "./CapabilitiesSection.astro";
-import ProtocolsSection from "./ProtocolsSection.astro";
-import WhySection from "./WhySection.astro";
-import SwitchSection from "./SwitchSection.astro";
-import ComparisonSection from "./ComparisonSection.astro";
-import CommunitySection from "./CommunitySection.astro";
-import RoadmapSection from "./RoadmapSection.astro";
-import MilestonesSection from "./MilestonesSection.astro";
+import CTASection from "./sections/CTASection.astro";
+import DemoSection from "./sections/DemoSection.astro";
+import FeaturesSection from "./sections/FeaturesSection.astro";
+import CapabilitiesSection from "./sections/CapabilitiesSection.astro";
+import ProtocolsSection from "./sections/ProtocolsSection.astro";
+import WhySection from "./sections/WhySection.astro";
+import SwitchSection from "./sections/SwitchSection.astro";
+import ComparisonSection from "./sections/ComparisonSection.astro";
+import CommunitySection from "./sections/CommunitySection.astro";
+import RoadmapSection from "./sections/RoadmapSection.astro";
+import MilestonesSection from "./sections/MilestonesSection.astro";
+import SponsorsPartners from "./sections/SponsorsPartners.astro";
 import Footer from "./Footer.astro";
 import BackToTop from "./BackToTop.astro";
 
@@ -43,6 +44,7 @@ const pageDesc = content.hero.theOpenSourceAlternativeToClosed;
         <CommunitySection content={content.community} />
         <RoadmapSection content={content.roadmap} />
         <MilestonesSection content={content.history} />
+        <SponsorsPartners content={content.sponsors} />
       </main>
       <Footer />
     </div>

@@ -172,6 +172,13 @@ export interface SiteContent {
     thirdStepLibobsRevoLibRust: string;
     useLibobsTodayWhileBuildingRevo: string;
   };
+  sponsors: {
+    sponsors: string;
+    shortInfo: string;
+    partners: string;
+    mainPartner: string;
+    itvt: string;
+  };
 }
 
 export const productContent: Record<Language, SiteContent> = {
@@ -183,6 +190,7 @@ export const productContent: Record<Language, SiteContent> = {
       "history": "History"
     },
     "hero": {
+      "stream": "Stream",
       "withoutLimits": "WITHOUT LIMITS",
       "theOpenSourceAlternativeToClosed": "The open-source alternative to closed streaming studios.",
       "downloadForLinux": " Download for Linux ",
@@ -346,6 +354,13 @@ export const productContent: Record<Language, SiteContent> = {
       "exploredANodeBasedDirectionTied": "Explored a Node-based direction tied to older versions and limited platform support.",
       "thirdStepLibobsRevoLibRust": "Third step — libobs → revo-lib → Rust",
       "useLibobsTodayWhileBuildingRevo": "Use libobs today while building revo-lib as the path toward a Rust-native core and long-term cross-platform control."
+    },
+    "sponsors": {
+      "sponsors": "Sponsors",
+      "shortInfo": "RevoStream is an open-source project built to empower streamers and live production teams. Your support helps us improve the application, develop new features, and build a better streaming experience for everyone.",
+      "partners": "Partners",
+      "mainPartner": "Main Partner",
+      "itvt": "iTVT"
     }
   },
   "pl": {
@@ -356,6 +371,7 @@ export const productContent: Record<Language, SiteContent> = {
       "history": "Historia"
     },
     "hero": {
+      "stream": "Streamuj",
       "withoutLimits": "BEZ OGRANICZEŃ",
       "theOpenSourceAlternativeToClosed": "Otwarta alternatywa dla zamkniętych studiów streamingowych.",
       "downloadForLinux": " Pobierz dla Linux ",
@@ -512,13 +528,20 @@ export const productContent: Record<Language, SiteContent> = {
     "history": {
       "history": "Historia",
       "builtThroughIteration": "Budowane iteracyjnie.",
-      "revostreamDidnTStartWithA": "RevoStream nie zaczynał z idealnym stackiem. Ewoluował, rozwiązując problemy, które naprawdę miały znaczenie.",
-      "firstStepCCore": "Pierwszy krok — core w C++",
-      "buildOnCCodePracticalAt": "Budowa na kodzie C++. Praktyczne rozwiązanie na tamten moment, ale trudne w długoterminowym utrzymaniu i rozwijaniu.",
-      "secondStepStreamlabsObsStudioNode": "Drugi krok — Streamlabs / OBS Studio Node",
-      "exploredANodeBasedDirectionTied": "Eksploracja kierunku opartego na Node, związanego ze starszymi wersjami i ograniczonym wsparciem platform.",
-      "thirdStepLibobsRevoLibRust": "Trzeci krok — libobs → revo-lib → Rust",
-      "useLibobsTodayWhileBuildingRevo": "Dziś korzystamy z libobs, budując jednocześnie revo-lib jako drogę do natywnego core'a w Rust i długoterminowej kontroli cross-platform."
+      "revostreamDidnTStartWithA": "RevoStream nie zaczyna\u0142 z idealnym stackiem. Ewoluowa\u0142, rozw\u0105zywa\u0142 problemy, kt\u00f3re naprawd\u0119 mia\u0142y znaczenie.",
+      "firstStepCCore": "Pierwszy krok \u2014 core w C++",
+      "buildOnCCodePracticalAt": "Budowa na kodzie C++. Praktyczne rozw\u0105zanie na tamten moment, ale trudne w d\u0142ugoterminowym utrzymaniu i rozwijaniu.",
+      "secondStepStreamlabsObsStudioNode": "Drugi krok \u2014 Streamlabs / OBS Studio Node",
+      "exploredANodeBasedDirectionTied": "Eksploracja kierunku opartego na Node, zwi\u0105zanego ze starszymi wersjami i ograniczonym wsparciem platform.",
+      "thirdStepLibobsRevoLibRust": "Trzeci krok \u2014 libobs \u2192 revo-lib \u2192 Rust",
+      "useLibobsTodayWhileBuildingRevo": "Dzi\u015b korzystamy z libobs, buduj\u0105c jednocze\u015bnie revo-lib jako drog\u0119 do natywnego core'a w Rust i d\u0142ugoterminowej kontroli cross-platform."
+    },
+    "sponsors": {
+      "sponsors": "Sponsorzy",
+      "shortInfo": "RevoStream to projekt open-source stworzony, by wspiera\u0107 streamer\u00f3w i zespo\u0142y produkcji na \u017cywo. Twoje wsparcie pomaga nam rozwija\u0107 aplikacj\u0119, dodawa\u0107 nowe funkcje i budowa\u0107 lepsze do\u015bwiadczenie streamingowe dla wszystkich.",
+      "partners": "Partnerzy",
+      "mainPartner": "Partner G\u0142\u00f3wny",
+      "itvt": "iTVT"
     }
-  }
+}
 };

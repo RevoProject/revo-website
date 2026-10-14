@@ -6,7 +6,7 @@ const { content } = Astro.props;
 <section class="hero">
 <div>
 <div class="eyebrow"><b>●</b> OPEN SOURCE <span>|</span> LIVE PRODUCTION <span>|</span> RUST</div>
-<h1>STREAM<br><span class="grad">{content.withoutLimits}</span></h1>
+<h1>{content.stream}<br><span class="grad">{content.withoutLimits}</span></h1>
 <p class="lead">{content.theOpenSourceAlternativeToClosed}</p>
 <div class="actions"><a class="btn primary" href="https://github.com/RevoProject/revo-stream/releases/latest"><svg viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 19h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>{content.downloadForLinux}<svg viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="https://github.com/RevoProject/revo-stream"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5a9.7 9.7 0 0 0-3.1 18.9c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-4.8 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.4 9.4 0 0 1 5 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.7.7 1 1.6 1 2.7 0 3.7-2.3 4.5-4.5 4.8.4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5A9.7 9.7 0 0 0 12 2.5Z"/></svg>{content.viewOnGithub}</a></div>
 <div class="available" id="download">
