@@ -6,7 +6,7 @@ RevoStream is composed of two main products:
 - **RevoStream** — the streaming control center desktop application (core engine, scene management, plugin system)
 - **revo-lib** — low-level Rust library with media processing, FFI bindings, and performance tools
 
-The project is under active development (v0.1.0 Alpha). The streaming core engine is in progress; scene management and plugin system are planned. The application is built with Tauri (Rust + Svelte webview) and targets Linux natively with experimental Windows and macOS support via an OBS bootstrapper.
+The project is under active development (v0.4.0 Alpha). The streaming core engine is in progress; scene management and plugin system are planned. The application is built with Tauri (Rust + Svelte webview) and targets Linux natively with experimental Windows and macOS support via an OBS bootstrapper.
 
 ## Architecture
 
@@ -54,10 +54,104 @@ Social channels: [YouTube](https://youtube.com/@itvt_pl), [Instagram](https://in
 ## Docs
 
 - [README](README.md): Project overview and setup instructions
-- [Source code](https://github.com/revoproject/revo-stream): RevoStream GitHub repository
-- [Website source](https://github.com/revoproject/revo-website): Website repository
-- [revo-lib](https://github.com/revoproject/revo-lib): Low-level Rust library source
-- [Releases](https://github.com/revoproject/revo-stream/releases): Download alpha builds
+- [Source code](https://github.com/RevoProject/revo-stream): RevoStream GitHub repository
+- [Website source](https://github.com/RevoProject/revo-website): Website repository
+- [revo-lib](https://github.com/RevoProject/revo-lib): Low-level Rust library source
+- [Releases](https://github.com/RevoProject/revo-stream/releases/tag/0.4.0): Download alpha builds
+
+## Release History
+
+### v0.4.0 (Latest — 2026-10-13)
+**Pre-beta release** — Not recommended for production use. Windows (primary tested), macOS (experimental), Linux (active development).
+
+**Key Improvements:**
+- Redesigned source editor with General, Filters, and Other tabs
+- Added Normal and Smaller interface density modes
+- Added RevoStream application icon
+- Improved modal layouts, UI scaling, context menus, SVG icons
+- Automatic saving of scene collection changes
+- Improved scene transitions and Preview/Program workflow
+- Stream key protection with reveal and copy confirmation
+- Improved audio device detection and labeling
+- Browser source CSS/JS injection, CDP-powered interaction window
+- Configurable OBS plugins path
+- Graphic Planner source sizing and type safety improvements
+- Source filter management and editor integration
+
+**Commits (since 0.3.3):**
+- `ci: fix release tag trigger and serialize dev publishes`
+- `ci: harden dev release publishing`
+- `ci: publish dev prerelease builds`
+- `fix: drop screenshot preview from audio filters`
+- `fix: route audio sources to audio filters`
+- `feat: opt-in obs-vst and obs-websocket settings`
+- `fix: pass x11 window ids to xcomposite capture`
+- `fix: validate linux capture source creation`
+- `feat: show libobs startup state`
+- `feat: add blocking RevoStream startup screen`
+- `fix: keep settings modal actions visible`
+- `fix: allow source labels to wrap`
+- `fix: wrap long source card labels`
+- `fix: hide internal source types in release`
+- `fix: avoid loading duplicate obs modules`
+- `fix: enable linux capture module discovery`
+- `refactor: move source settings into general tab`
+- `fix: keep source editor settings scrollable`
+
+**Assets:** Windows (portable ZIP, setup EXE), Linux (AppImage, DEB, RPM, portable tar.gz, .run), macOS (DMG aarch64/x64)
+
+### v0.3.3 (2026-10-12) — Developer Release
+**CI/CD Refactoring:** Extracted platform-specific release logic into dedicated scripts, reduced release.yml from ~2,180 to 436 lines. Separated Linux, Windows, macOS runtime preparation, packaging, validation. Added Python utility for disabling unavailable CEF support. No application binaries provided.
+
+**Commit:** `refactor(ci): extract platform release scripts` (1fa4cff)
+
+### v0.3.2 (2026-10-12) — Officially Windows Support
+**Key Improvements:** Windows OBS runtime initialization, portable packaging, custom `--obs-path` and `--revo-root` flags, improved OBS plugin loading and native source rendering, fixed source handling/rendering issues, improved cross-platform runtime configuration.
+
+**Platform:** Windows (initial officially tested x64), macOS (experimental), Linux (active development)
+
+**Assets:** Windows (portable ZIP, setup EXE), Linux (AppImage, DEB, RPM), macOS (DMG)
+
+### v0.3.1 (2026-10-07) — Extended OS Support
+**Bug Fixes & Improvements:** Fixed duplicate Settings close buttons, extended Windows/macOS runtime support, improved OBS runtime initialization and path handling, added OBS plugin window hosting detection, initial browser source integration, basic browser rendering into OBS frames, native browser docks restoration, expanded Linux packages (AppImage, DEB, RPM, portable).
+
+**Main Commits:**
+- `ci: publish Linux AppImage DEB RPM and portable releases` (dd6bd53)
+- `fix: keep installed application state outside bundled resources` (5382ec0)
+- `fix: restore native browser docks and secure webview lifecycle` (3f7d544)
+- `chore: bump RevoStream version to 0.3.1` (c0a3b67)
+- `feat: report plugin window hosting capabilities` (51bfed5)
+- `feat: render browser snapshots into OBS video frames` (7aa94e2)
+- `fix: extend Windows and macOS runtime support` (a7bfac8)
+- `fix: remove duplicate settings close button` (dfe480c)
+- `fix: improve Windows runtime initialization` (dee3893)
+- `fix: bundle macOS FFmpeg runtime dependencies` (5fddd47)
+
+### v0.3.0 (2026-10-07) — RevoFuture Design System
+**Major Features:** RevoFuture design system (new default), RevoClassic/RevoFuture theme switching, semantic color tokens, consistent spacing/border-radius/motion tokens, dedicated Settings surface layer, completely new UI layer (23 components), resizable workspace panels (drag + keyboard), cached 72×40 scene thumbnails, theme persistence, early theme bootstrap in app.html.
+
+**Technical:** `static/revo-themes.css` (tokens, scopes), `static/revo-ui.css` (RevoFuture UI), `src/lib/theme/revoTheme.ts` (management, persistence), `app.html` (early init)
+
+**Commits:**
+- `feat(ui): RevoFuture design system (colors, tokens, UI layer)` (02f54e8) — 27 files, +2623/−67
+- `chore: ignore plans/ and local build artifacts` (bff2515)
+- `chore(deps): sync Cargo.lock with workspace dependency sources` (be7768b)
+
+### v0.2.0 (2026-10-01) — Windows + macOS Support
+**Preview & Recording:** Fixed 2× zoom/crop issue, improved preview rendering stability, preserved dimensions during recording, safer texrender recreation.
+
+**Audio:** Live audio levels, per-source mute, fixed use-after-free, improved PipeWire/PulseAudio/ALSA support.
+
+**Graphic Planner:** Async dimension handling, transform preservation, debounced history checkpoints, scene-switch handling.
+
+**Sources & Media:** Image slideshow, file pickers, system font picker, window capture, ALSA/PipeWire capture.
+
+**Scenes & Transitions:** Proper OBS transition handling, fixed reference-counting, improved scene switching during recording.
+
+**Runtime & Stability:** Fixed encoder/service leaks, improved cleanup, OBS module loading, Linux/Nix runtime handling.
+
+### v0.1.0 (2026-02-22) — First Alpha (Linux Only)
+Initial release with: Audio Mixer, Transitions, Plugins, OBS Import/Export, Confirmation Alerts, Custom Themes, Broadcast/Recording, Audio/Video Settings, Custom Shortcuts, Accessibility Options.
 
 ## Related Projects
 
@@ -74,4 +168,4 @@ Social channels: [YouTube](https://youtube.com/@itvt_pl), [Instagram](https://in
 - [Instagram](https://instagram.com/itvt_poland): iTVT Poland Group Instagram
 - [TikTok](https://tiktok.com/@itvt_poland): iTVT Poland Group TikTok
 - [GitHub org](https://github.com/open-itvt): iTVT Poland Group GitHub
-- [GitHub org](https://github.com/revoproject): RevoProject GitHub
+- [GitHub org](https://github.com/RevoProject): RevoProject GitHub
