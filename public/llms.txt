@@ -30,7 +30,7 @@ RevoStream is developed under the iTVT Poland Group organization. iTVT Poland Gr
 - **iTVT Hub** (Next.js) — Central website
 - **iTVT Roadmap** — Public product roadmap
 
-Social channels: [YouTube](https://youtube.com/@itvt_pl), [Instagram](https://instagram.com/itvt_poland), [TikTok](https://tiktok.com/@itvt_poland), [GitHub](https://github.com/open-itvt)
+Social channels: [YouTube](https://youtube.com/@itvt_pl), [Instagram](https://instagram.com/itvt_poland), [TikTok](https://tiktok.com/@itvt_pl), [GitHub](https://github.com/open-itvt)
 
 ## Milestones
 
@@ -166,6 +166,6 @@ Initial release with: Audio Mixer, Transitions, Plugins, OBS Import/Export, Conf
 - [iTVT Poland Group](https://itvt.xyz): Parent organization
 - [YouTube](https://youtube.com/@itvt_pl): iTVT Poland Group channel
 - [Instagram](https://instagram.com/itvt_poland): iTVT Poland Group Instagram
-- [TikTok](https://tiktok.com/@itvt_poland): iTVT Poland Group TikTok
+- [TikTok](https://tiktok.com/@itvt_pl): iTVT Poland Group TikTok
 - [GitHub org](https://github.com/open-itvt): iTVT Poland Group GitHub
 - [GitHub org](https://github.com/RevoProject): RevoProject GitHub
