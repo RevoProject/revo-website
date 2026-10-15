@@ -3,7 +3,7 @@ import type { SiteContent } from "../lib/product-content";
 interface Props { content: SiteContent["sponsors"]; }
 const { content } = Astro.props;
 ---
-<section class="sponsors-partners">
+<section class="sponsors-partners" id="sponsors">
   <div class="wrap">
     <div class="sectionhead" style="margin-bottom: 40px;">
       <span class="kicker">{content.sponsors}</span>
@@ -14,7 +14,7 @@ const { content } = Astro.props;
     <div class="partners-grid">
       <article class="partner-card main-partner">
         <span class="partner-badge">{content.mainPartner}</span>
-        <a href="https://itvt.pl" target="_blank" rel="noopener noreferrer" class="partner-link">
+        <a href="https://itvt.xyz" target="_blank" rel="noopener noreferrer" class="partner-link">
           <img 
             src="https://i.imgur.com/Sbh3a8O.png" 
             alt={content.itvt}
